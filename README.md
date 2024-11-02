@@ -12,10 +12,19 @@
 ## Требования
 
 - **Python 3.x**
-- **Библиотека Requests**: Установите с помощью `pip install requests`
-- **Библиотека python-dotenv**: Установите с помощью `pip install python-dotenv`
-- **API_KEY_NASA, TG_TOKEN, CHAT_ID**: Сохраните токен в файле `.env`
+
+- **Библиотека Requests**
+- **Библиотека python-dotenv**
 - **python-telegram-bot 13.0**
+
+   Данные требования можно устанивить в терминале командой:
+   ```plaintext
+   pip install -r requirements.txt
+   
+   ```
+
+- **API_KEY_NASA, TG_TOKEN, CHAT_ID**: Сохраните токен в файле `.env`
+
 
 ## Настройка
 
