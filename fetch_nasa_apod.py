@@ -3,9 +3,10 @@ from dotenv import load_dotenv
 import requests
 from load_image import load_image
 
+load_dotenv(".env")
 current_dir = os.path.dirname(__file__)
 images_path = f"{current_dir}/images/spaceX/"
-
+API_KEY_NASA = os.getenv("API_KEY_NASA")
 
 def fetch_nasa_apod(api_key, place_to_save=images_path):
     params = {
