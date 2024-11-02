@@ -19,10 +19,10 @@ def fetch_nasa_apod(api_key, place_to_save=images_path):
     response.raise_for_status()
 
     images_data = response.json()
-    for index, item in enumerate(images_data, start=1):
-        url = item.get("url")
+    for index_of_image, image_data in enumerate(images_data, start=1):
+        url = image_data.get("url")
         if url:
-            file_name = f"nasa_apod_{index}"
+            file_name = f"nasa_apod_{index_of_image}"
             load_image(url, place_to_save, name_of_img=file_name)
 
 
