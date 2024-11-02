@@ -15,7 +15,7 @@
 
 - **Библиотека Requests**
 - **Библиотека python-dotenv**
-- **python-telegram-bot 13.0**
+- **python-telegram-bot версии 13.0**
 
    Данные требования можно устанивить в терминале командой:
    ```plaintext
