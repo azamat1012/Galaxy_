@@ -5,7 +5,8 @@ from load_image import load_image
 
 current_dir = os.path.dirname(__file__)
 images_path = f"{current_dir}/images/spaceX/"
-
+load_dotenv(".env")
+API_KEY_NASA = os.getenv("API_KEY_NASA")
 
 def fetch_nasa_epic(api_key, place_to_save=images_path):
     url = "https://api.nasa.gov/EPIC/api/natural/images"
@@ -22,8 +23,6 @@ def fetch_nasa_epic(api_key, place_to_save=images_path):
 
 
 def main():
-    load_dotenv(".env")
-    API_KEY_NASA = os.getenv("API_KEY_NASA")
     fetch_nasa_epic(API_KEY_NASA)
 
 
