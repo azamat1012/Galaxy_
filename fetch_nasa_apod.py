@@ -9,10 +9,10 @@ images_path = f"{current_dir}/images/spaceX/"
 API_KEY_NASA = os.getenv("API_KEY_NASA")
 
 def fetch_nasa_apod(api_key, place_to_save=images_path):
-    amunt_of_images
+    amount_of_images
     params = {
         "api_key": api_key,
-        "count": amunt_of_images
+        "count": amount_of_images
     }
     nasa_url = f"https://api.nasa.gov/planetary/apod"
     response = requests.get(nasa_url, params=params)
