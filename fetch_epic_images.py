@@ -3,7 +3,6 @@ import requests
 from dotenv import load_dotenv
 from load_image import load_image
 
-
 current_dir = os.path.dirname(__file__)
 images_path = f"{current_dir}/images/spaceX/"
 
@@ -22,7 +21,11 @@ def fetch_nasa_epic(api_key, place_to_save=images_path):
         load_image(img_url, place_to_save, name_of_img=img_name)
 
 
-if __name__ == "__main__":
+def main():
     load_dotenv(".env")
     API_KEY_NASA = os.getenv("API_KEY_NASA")
     fetch_nasa_epic(API_KEY_NASA)
+
+
+if __name__ == "__main__":
+    main()
