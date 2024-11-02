@@ -20,7 +20,7 @@ def fetch_spacex_last_launch(launch_id=None, place_to_save=images_path):
 
 def main():
     parser = argparse.ArgumentParser(description="Download SpaceX launch images.")
-    parser.add_argument("--launch_id", help="ID of the SpaceX launch to fetch images for.")
+    parser.add_argument("--launch_id", default="latest", help="ID of the SpaceX launch to fetch images for.")
     args = parser.parse_args()
     fetch_spacex_last_launch(args.launch_id)
 
