@@ -5,6 +5,10 @@ import argparse
 from dotenv import load_dotenv
 from telegram import Bot
 
+
+load_dotenv(".env")
+TG_TOKEN = os.getenv("TG_TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
 DEFAULT_INTERVAL = 60 * 60 * 4  # 4 часа по умолчанию
 
 
@@ -31,8 +35,6 @@ def start_publishing(bot, chat_id, directory, interval):
 def main():
     """Основная функция для запуска публикации изображений."""
     load_dotenv(".env")
-    TG_TOKEN = os.getenv("TG_TOKEN")
-    CHAT_ID = os.getenv("CHAT_ID")
     parser = argparse.ArgumentParser(
         description="Автоматическая публикация изображений в Telegram канал.")
     current_dir = os.path.dirname(__file__)
