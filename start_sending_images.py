@@ -14,7 +14,12 @@ DEFAULT_INTERVAL = 60 * 60 * 4  # 4 часа по умолчанию
 
 def get_images(directory):
     """Получает список путей к файлам изображений в указанной директории."""
-    return [os.path.join(directory, file) for file in os.listdir(directory) if file.lower().endswith(('jpeg', 'jpg', 'png', 'gif'))]
+    paths_to_images=[]
+    for file in os.listdir(directory):
+        if file.lower().endswith(('jpeg', 'jpg', 'png', 'gif')):
+            paths_to_images.append(os.path.join(directory, file))
+        
+    return paths_to_images
 
 
 def start_publishing(bot, chat_id, directory, interval):
