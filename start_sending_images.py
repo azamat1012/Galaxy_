@@ -12,7 +12,7 @@ CHAT_ID = os.getenv("CHAT_ID")
 DEFAULT_INTERVAL = 60 * 60 * 4  # 4 часа по умолчанию
 
 
-def get_images_list(directory):
+def get_images(directory):
     """Получает список путей к файлам изображений в указанной директории."""
     return [os.path.join(directory, file) for file in os.listdir(directory) if file.lower().endswith(('jpeg', 'jpg', 'png', 'gif'))]
 
@@ -20,7 +20,7 @@ def get_images_list(directory):
 def start_publishing(bot, chat_id, directory, interval):
     """Публикует изображения из директории в чат с заданным интервалом."""
     while True:
-        images = get_images_list(directory)
+        images = get_images(directory)
         if not images:
             return "В директории нет изображений для публикации."
 
