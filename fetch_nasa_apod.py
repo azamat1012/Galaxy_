@@ -26,8 +26,6 @@ def fetch_nasa_apod(api_key, place_to_save=images_path):
 
 
 def main():
-    load_dotenv(".env")
-    API_KEY_NASA = os.getenv("API_KEY_NASA")
     fetch_nasa_apod(API_KEY_NASA)
 
 
