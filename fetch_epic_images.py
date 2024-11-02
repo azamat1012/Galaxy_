@@ -15,10 +15,10 @@ def fetch_nasa_epic(api_key, place_to_save=images_path):
     response.raise_for_status()
 
     base_url = "https://epic.gsfc.nasa.gov/archive/natural/"
-    for img_data in response.json()[:10]:
-        time_data = img_data['date'][:10].replace('-', '/')
-        img_name = img_data["image"]
-        img_url = f"{base_url}/{time_data}/png/{img_name}.png"
+    for image_data in response.json()[:10]:
+        formatted_time = image_data['date'][:10].replace('-', '/')
+        img_name = image_data["image"]
+        img_url = f"{base_url}/{formatted_time}/png/{img_name}.png"
         load_image(img_url, place_to_save, name_of_img=img_name)
 
 
