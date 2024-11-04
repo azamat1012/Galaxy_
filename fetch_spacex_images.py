@@ -3,12 +3,12 @@ import argparse
 import requests
 from load_image import load_image
 
-def fetch_spacex_last_launch(launch_id=None, place_to_save=None):
+def fetch_spacex_last_launch(launch_id=latest, place_to_save=None):
     if place_to_save is None:
         current_dir = os.path.dirname(__file__)
         place_to_save = f"{current_dir}/images/spaceX/"
         
-    spaceX_url = f"https://api.spacexdata.com/v5/launches/{launch_id}" if launch_id else "https://api.spacexdata.com/v5/launches/latest"
+    spaceX_url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
     spaceX_response = requests.get(spaceX_url)
     spaceX_response.raise_for_status()
     
