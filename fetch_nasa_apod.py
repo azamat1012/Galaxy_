@@ -12,11 +12,11 @@ def fetch_nasa_apod(api_key, place_to_save, amount_of_images=5):
     response = requests.get(nasa_url, params=params)
     response.raise_for_status()
 
-    images_data = response.json()
-    for index_of_image, image_data in enumerate(images_data, start=1):
-        url = image_data.get("url")
+    images = response.json()
+    for number, image in enumerate(images, start=1):
+        url = image.get("url")
         if url:
-            file_name = f"nasa_apod_{index_of_image}"
+            file_name = f"nasa_apod_{number}"
             load_image(url, place_to_save, name_of_img=file_name)
 
 if __name__ == "__main__":
