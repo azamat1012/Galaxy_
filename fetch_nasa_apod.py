@@ -21,8 +21,8 @@ def fetch_nasa_apod(api_key, place_to_save, amount_of_images=5):
 
 if __name__ == "__main__":
     load_dotenv(".env")
-    current_dir = os.path.dirname(__file__)
-    images_path = f"{current_dir}/images/spaceX/"
+    CURRENT_DIR = os.path.dirname(__file__)
+    IMAGES_PATH = f"{current_dir}/images/spaceX/"
     API_KEY_NASA = os.getenv("API_KEY_NASA")
 
     if API_KEY_NASA:
