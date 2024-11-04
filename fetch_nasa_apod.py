@@ -26,6 +26,6 @@ if __name__ == "__main__":
     API_KEY_NASA = os.getenv("API_KEY_NASA")
 
     if API_KEY_NASA:
-        fetch_nasa_apod(API_KEY_NASA, images_path)
+        fetch_nasa_apod(API_KEY_NASA, IMAGES_PATH)
     else:
         print("API_KEY_NASA is missing in environment variables.")
