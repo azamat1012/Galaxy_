@@ -24,10 +24,10 @@ def main():
     parser.add_argument("--launch_id", default=None, help="ID of the SpaceX launch to fetch images for.")
     args = parser.parse_args()
     
-    current_dir = os.path.dirname(__file__)
-    images_path = f"{current_dir}/images/spaceX/"
+    CURRENT_DIR = os.path.dirname(__file__)
+    IMAGES_PATH = f"{CURRENT_DIR}/images/spaceX/"
     
-    fetch_spacex_last_launch(args.launch_id, place_to_save=images_path)
+    fetch_spacex_last_launch(args.launch_id, place_to_save=IMAGES_PATH)
 
 if __name__ == "__main__":
     main()
