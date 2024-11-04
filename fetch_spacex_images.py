@@ -3,13 +3,15 @@ import argparse
 import requests
 from load_image import load_image
 
-current_dir = os.path.dirname(__file__)
-images_path = f"{current_dir}/images/spaceX/"
-
-
-def fetch_spacex_last_launch(launch_id=None, place_to_save=images_path):
+def fetch_spacex_last_launch(launch_id=None, place_to_save=None):
+    if place_to_save is None:
+        current_dir = os.path.dirname(__file__)
+        place_to_save = f"{current_dir}/images/spaceX/"
+        
     spaceX_url = f"https://api.spacexdata.com/v5/launches/{launch_id}" if launch_id else "https://api.spacexdata.com/v5/launches/latest"
     spaceX_response = requests.get(spaceX_url)
+    spaceX_response.raise_for_status()
+    
     images_data = spaceX_response.json()
     flickr_images = images_data['links']['flickr']['original']
 
@@ -17,13 +19,15 @@ def fetch_spacex_last_launch(launch_id=None, place_to_save=images_path):
         img_name = f"spacex_{index}"
         load_image(url, place_to_save, name_of_img=img_name)
 
-
 def main():
     parser = argparse.ArgumentParser(description="Download SpaceX launch images.")
-    parser.add_argument("--launch_id", default="latest", help="ID of the SpaceX launch to fetch images for.")
+    parser.add_argument("--launch_id", default=None, help="ID of the SpaceX launch to fetch images for.")
     args = parser.parse_args()
-    fetch_spacex_last_launch(args.launch_id)
-
+    
+    current_dir = os.path.dirname(__file__)
+    images_path = f"{current_dir}/images/spaceX/"
+    
+    fetch_spacex_last_launch(args.launch_id, place_to_save=images_path)
 
 if __name__ == "__main__":
     main()
