@@ -12,8 +12,8 @@ def fetch_spacex_last_launch(launch_id=None, place_to_save=None):
     spaceX_response = requests.get(spaceX_url)
     spaceX_response.raise_for_status()
     
-    images_data = spaceX_response.json()
-    flickr_images = images_data['links']['flickr']['original']
+    images = spaceX_response.json()
+    flickr_images = images['links']['flickr']['original']
 
     for index, url in enumerate(flickr_images, start=1):
         img_name = f"spacex_{index}"
