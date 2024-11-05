@@ -3,10 +3,7 @@ import argparse
 import requests
 from load_image import load_image
 
-def fetch_spacex_last_launch(launch_id=latest, place_to_save=None):
-    if place_to_save is None:
-        current_dir = os.path.dirname(__file__)
-        place_to_save = f"{current_dir}/images/spaceX/"
+def fetch_spacex_last_launch(launch_id=latest, place_to_save):
         
     spaceX_url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
     spaceX_response = requests.get(spaceX_url)
@@ -24,10 +21,10 @@ def main():
     parser.add_argument("--launch_id", default=None, help="ID of the SpaceX launch to fetch images for.")
     args = parser.parse_args()
     
-    CURRENT_DIR = os.path.dirname(__file__)
-    IMAGES_PATH = f"{CURRENT_DIR}/images/spaceX/"
+    current_dir = os.path.dirname(__file__)
+    place_to_save = f"{current_dir}/images/spaceX/"
     
-    fetch_spacex_last_launch(args.launch_id, place_to_save=IMAGES_PATH)
+    fetch_spacex_last_launch(args.launch_id, place_to_save=place_to_save)
 
 if __name__ == "__main__":
     main()
