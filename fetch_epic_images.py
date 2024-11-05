@@ -19,11 +19,11 @@ def fetch_nasa_epic(api_key, place_to_save):
 
 if __name__ == "__main__":
     load_dotenv(".env")
-    CURRENT_DIR = os.path.dirname(__file__)
-    IMAGES_PATH = f"{CURRENT_DIR}/images/spaceX/"
+    current_dir = os.path.dirname(__file__)
+    place_to_save = f"{current_dir}/images/spaceX/"
     API_KEY_NASA = os.getenv("API_KEY_NASA")
 
     if API_KEY_NASA:
-        fetch_nasa_epic(API_KEY_NASA, IMAGES_PATH)
+        fetch_nasa_epic(API_KEY_NASA, place_to_save)
     else:
         print("API_KEY_NASA is missing in environment variables.")
